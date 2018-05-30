@@ -33,14 +33,14 @@
 #ifndef CEF_INCLUDE_BASE_INTERNAL_ATOMICOPS_MIPS_GCC_H_
 #define CEF_INCLUDE_BASE_INTERNAL_ATOMICOPS_MIPS_GCC_H_
 
-struct AtomicOps_mipCPUFeatureStruct{
+/*struct AtomicOps_mipCPUFeatureStruct{
 	bool has_amd_lock_mb_bug;
 };
 extern struct AtomicOps_mipCPUFeatureStruct
 	AtomicOps_InternalmipCPUFeatures;
-
+*/
 #define ATOMICOPS_COMPILER_BARRIER() __asm__ __volatile__("" : : : "memory")
-typedef int64_t Atomic64;
+
 namespace base {
 namespace  subtle{
 
