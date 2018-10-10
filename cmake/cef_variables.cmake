@@ -25,10 +25,10 @@ endif()
 
 # Determine the project architecture.
 if(NOT DEFINED PROJECT_ARCH)
-  if(CMAKE_SIZEOF_VOID_P MATCHES 8)
-    set(PROJECT_ARCH "x86_64")
-  else()
-    set(PROJECT_ARCH "x86")
+  set(PROJECT_ARCH ${CMAKE_HOST_SYSTEM_PROCESSOR})
+
+  if(${PROJECT_ARCH} STREQUAL "mips64")
+    set(PROJECT_ARCH "mips64el")
   endif()
 
   if(OS_MACOSX)

@@ -27,6 +27,10 @@ keyboard_handler_on_clipboard_changed(struct _cef_keyboard_handler_t* self,
   if (!self)
     return;
 
+  //###(zccrs): 在龙芯上会莫名其妙过来一些奇怪的数据，先暂时使用此种方式绕过
+  if (text_len > uint32_t(0xffffffff))
+    return;
+
   // Execute
   CefKeyboardHandlerCppToC::Get(self)->OnClipboardChanged(text_data, text_len);
 }
